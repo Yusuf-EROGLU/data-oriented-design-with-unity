@@ -27,7 +27,7 @@ public class Spawner : MonoBehaviour
         GameObjectConversionSettings settings = GameObjectConversionSettings.FromWorld(defaultWorld, null);
         entityPrefab = GameObjectConversionUtility.ConvertGameObjectHierarchy(gameObjectPrefab, settings);
 
-        InstantiateCube(30, 30, 30, 1.5f);
+        InstantiateCubeEntity(30, 30, 30, 1f);
     }
 
     private void InstantiateGrid(int xSize, int ySize, float spacing)
@@ -41,7 +41,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void InstantiateCube(int xSize, int ySize, int zSize, float spacing)
+    private void InstantiateCubeEntity(int xSize, int ySize, int zSize, float spacing)
     {
         for (int i = 0; i < xSize; i++)
         {
