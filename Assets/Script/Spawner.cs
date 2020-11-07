@@ -27,9 +27,8 @@ public class Spawner : MonoBehaviour
         GameObjectConversionSettings settings = GameObjectConversionSettings.FromWorld(defaultWorld, null);
         entityPrefab = GameObjectConversionUtility.ConvertGameObjectHierarchy(gameObjectPrefab, settings);
 
-        InstantiateCubeEntity(30, 30, 30, 1f);
+        InstantiateGrid(200,  200,1f);
     }
-
     private void InstantiateGrid(int xSize, int ySize, float spacing)
     {
         for (int i = 0; i < xSize; i++)
@@ -40,7 +39,6 @@ public class Spawner : MonoBehaviour
             }
         }
     }
-
     private void InstantiateCubeEntity(int xSize, int ySize, int zSize, float spacing)
     {
         for (int i = 0; i < xSize; i++)
@@ -63,7 +61,6 @@ public class Spawner : MonoBehaviour
             Value = position
         });
     }
-    
     private void InstantiateMonoCube(int xSize, int ySize, int zSize, float spacing)
     {
         for (int i = 0; i < xSize; i++)
@@ -77,7 +74,6 @@ public class Spawner : MonoBehaviour
             }
         }
     }
-
     private void MakeEntity()
     {
         // World.DefaultGameObjectInjectionWorld.EntityManager idafesindeki EntityManager static olup her world için bir adet bulunmaktadır.
@@ -88,7 +84,8 @@ public class Spawner : MonoBehaviour
             //aşağıdaki üçü hypred renderer'ın entityleri çizmesi için gerekli olan şeyler
             typeof(RenderMesh),
             typeof(RenderBounds),
-            typeof(LocalToWorld));
+            typeof(LocalToWorld),
+            typeof(MoveSpeedData));
 
         Entity myEntity = entityManager.CreateEntity(archetype);
 
